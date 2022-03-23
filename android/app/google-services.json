@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "2379628712",
+    "project_id": "mini-warriors-wiki",
+    "storage_bucket": "mini-warriors-wiki.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2379628712:android:65aa000d8dda2a2749c29d",
+        "android_client_info": {
+          "package_name": "com.example.eigen_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2379628712-ee85s576ikemogfohcdqbmbk2pliup3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv4r916fJFJb4-BVCf1oIPQvkSE7oFPxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2379628712-ee85s576ikemogfohcdqbmbk2pliup3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
