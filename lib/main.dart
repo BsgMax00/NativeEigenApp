@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         title: "Eigen App",
         theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          scaffoldBackgroundColor: Color.fromARGB(255, 202, 196, 146),
+          scaffoldBackgroundColor: const Color.fromARGB(255, 202, 196, 146),
         ),
         home: EigenApp(),
         debugShowCheckedModeBanner: false);
@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
 }
 
 class EigenApp extends StatelessWidget {
+  bool TavernVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -46,9 +48,9 @@ class EigenApp extends StatelessWidget {
                 ]),
             body: TabBarView(children: [
               HomePage(),
-              HeroPage(),
-              ItemsPage(),
-              GameTrailerPage()
+              const HeroPage(),
+              const ItemsPage(),
+              const GameTrailerPage()
             ])));
   }
 }

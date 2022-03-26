@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:eigen_app/itemsInfoPage.dart';
+import 'package:eigen_app/itemsAddPage.dart';
+import 'itemsInfoPage.dart';
 import 'package:flutter/material.dart';
 
 class ItemsPage extends StatefulWidget {
@@ -20,28 +21,37 @@ class _ItemsPageState extends State<ItemsPage> {
     final Stream<QuerySnapshot> Items =
         FirebaseFirestore.instance.collection('Items').snapshots();
 
-    return Container(
-        child: StreamBuilder<QuerySnapshot>(
-            stream: Items,
-            builder: (
-              BuildContext context,
-              AsyncSnapshot<QuerySnapshot> snapshot,
-            ) {
-              if (snapshot.hasError) {
-                return const Text('something went wrong');
-              }
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Text('loading');
-              } else {
-                final data = snapshot.requireData;
+    return Scaffold(
+      body: StreamBuilder<QuerySnapshot>(
+          stream: Items,
+          builder: (
+            BuildContext context,
+            AsyncSnapshot<QuerySnapshot> snapshot,
+          ) {
+            if (snapshot.hasError) {
+              return const Text('something went wrong');
+            }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Text('loading');
+            } else {
+              final data = snapshot.requireData;
 
-                return ListView.builder(
-                    itemCount: data.size,
-                    itemBuilder: (context, index) {
-                      return makeItemTile(data, index);
-                    });
-              }
-            }));
+              return ListView.builder(
+                  itemCount: data.size,
+                  itemBuilder: (context, index) {
+                    return makeItemTile(data, index);
+                  });
+            }
+          }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ItemsAddPage()))
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: const Color.fromRGBO(79, 45, 30, 1),
+      ),
+    );
   }
 
   ListTile makeItemTile(data, index) {

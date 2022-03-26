@@ -35,8 +35,8 @@ class _GameTrailerPageState extends State<GameTrailerPage> {
           });
         },
         child: videoController.value.isPlaying
-            ? Icon(Icons.pause, size: 60)
-            : Icon(Icons.play_arrow, size: 60),
+            ? const Icon(Icons.pause, size: 60)
+            : const Icon(Icons.play_arrow, size: 60),
       )
     ]);
   }
